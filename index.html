@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luca Raciti — Portfolio</title>
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --surface: #111827;
+      --card: #1a2235;
+      --accent: #3b82f6;
+      --accent2: #8b5cf6;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --border: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59,130,246,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-line {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── À PROPOS ── */
+    #about { background: var(--surface); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      margin: 0 auto;
+      box-shadow: 0 0 60px rgba(59,130,246,0.3);
+    }
+
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1.05rem; }
+
+    .about-info { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .info-icon { color: var(--accent); font-size: 1.1rem; }
+
+    /* ── COMPÉTENCES ── */
+    #skills { background: var(--bg); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(59,130,246,0.15);
+    }
+
+    .skill-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .skill-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
+
+    .skill-bar-wrap {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.75rem;
+    }
+
+    .skill-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    .skill-level { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; }
+
+    /* ── PROJETS ── */
+    #projects { background: var(--surface); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(59,130,246,0.15);
+    }
+
+    .project-header {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-body { padding: 1.5rem; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(59,130,246,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+    .project-desc { font-size: 0.9rem; color: var(--muted); }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover { gap: 0.7rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info p { color: var(--muted); margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail span { display: block; }
+    .contact-detail .label { font-size: 0.75rem; color: var(--muted); }
+    .contact-detail .value { font-size: 0.95rem; font-weight: 500; }
+    .contact-detail a { color: var(--text); text-decoration: none; }
+    .contact-detail a:hover { color: var(--accent); }
+
+    form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    label { font-size: 0.85rem; color: var(--muted); }
+
+    input, textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea { min-height: 130px; }
+
+    #form-status {
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      display: none;
+    }
+
+    #form-status.success {
+      display: block;
+      background: rgba(34,197,94,0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .about-grid,
+      .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { gap: 1rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">LR.</div>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-badge">☁️ Cloud &amp; Blockchain Engineer</div>
+    <h1>Luca <span>Raciti</span></h1>
+    <p class="hero-subtitle">Architecte Cloud · Ingénieur Big Data · Développeur Blockchain<br>Basé en Italie 🇮🇹</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── À PROPOS ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-in">
+        <div class="about-avatar">👨‍💻</div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-label">À propos</p>
+        <h2 class="section-title">Bonjour, je suis Luca</h2>
+        <div class="section-line"></div>
+        <p>Ingénieur passionné par les technologies cloud, la data et les systèmes décentralisés. Je conçois des architectures scalables sur AWS, des pipelines de données massives et des solutions blockchain pour les entreprises modernes.</p>
+        <p>Avec plusieurs années d'expérience dans des environnements cloud-native, je transforme des défis techniques complexes en solutions robustes et maintenables.</p>
+        <div class="about-info">
+          <div class="info-item"><span class="info-icon">📍</span> Italie</div>
+          <div class="info-item"><span class="info-icon">💼</span> Cloud &amp; Blockchain Engineer</div>
+          <div class="info-item"><span class="info-icon">✉️</span> lucasaidraciti@gmail.com</div>
+          <div class="info-item"><span class="info-icon">🌐</span> Disponible pour des projets freelance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPÉTENCES ── -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label fade-in">Expertise</p>
+    <h2 class="section-title fade-in">Compétences</h2>
+    <div class="section-line fade-in"></div>
+    <div class="skills-grid">
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">Cloud Computing</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div>
+        <div class="skill-level">Expert — 90%</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🟠</div>
+        <div class="skill-name">AWS</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
+        <div class="skill-level">Expert — 88%</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Big Data</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="82"></div></div>
+        <div class="skill-level">Avancé — 82%</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
+        <div class="skill-level">Expert — 92%</div>
+      </div>
+
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⛓️</div>
+        <div class="skill-name">Blockchain</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div>
+        <div class="skill-level">Avancé — 78%</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJETS ── -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label fade-in">Réalisations</p>
+    <h2 class="section-title fade-in">Projets</h2>
+    <div class="section-line fade-in"></div>
+    <div class="projects-grid">
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1e3a5f, #0a1628);">🟠</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Lambda</span>
+          </div>
+          <div class="project-title">CloudScaler Pro</div>
+          <div class="project-desc">Architecture multi-région sur AWS avec auto-scaling intelligent, réduisant les coûts d'infrastructure de 40% pour une startup FinTech de 500k utilisateurs.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1a2e4a, #0d1f35);">📊</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">Spark</span><span class="tag">Kafka</span><span class="tag">Python</span><span class="tag">AWS EMR</span>
+          </div>
+          <div class="project-title">DataStream Analytics</div>
+          <div class="project-desc">Pipeline Big Data temps-réel traitant 10 millions d'événements par jour, avec dashboards Spark Streaming et stockage optimisé sur S3 / Redshift.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1f1a3a, #110d24);">⛓️</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">Ethereum</span><span class="tag">Solidity</span><span class="tag">Web3.py</span>
+          </div>
+          <div class="project-title">ChainVault DeFi</div>
+          <div class="project-desc">Protocole DeFi sur Ethereum avec smart contracts audités, gestion de pools de liquidité et interface Python pour l'automatisation des stratégies de yield farming.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1a3029, #0d1f18);">🐍</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">ML</span><span class="tag">AWS SageMaker</span>
+          </div>
+          <div class="project-title">PredictOps AI</div>
+          <div class="project-desc">Plateforme MLOps déployant des modèles de prédiction de pannes industrielles via SageMaker, avec monitoring automatisé et réentraînement continu.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #2a1a1a, #1a0d0d);">🔗</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">Hyperledger</span><span class="tag">Go</span><span class="tag">AWS</span>
+          </div>
+          <div class="project-title">SupplyChain Ledger</div>
+          <div class="project-desc">Solution de traçabilité supply chain sur Hyperledger Fabric, hébergée sur AWS, permettant la transparence bout-en-bout pour un groupe industriel européen.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header" style="background: linear-gradient(135deg, #1a2a3a, #0d1a26);">📡</div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="tag">Big Data</span><span class="tag">Hadoop</span><span class="tag">Hive</span><span class="tag">Python</span>
+          </div>
+          <div class="project-title">MeteoData Lake</div>
+          <div class="project-desc">Data lake météorologique analysant 5 To de données satellitaires par semaine via Hadoop/Hive, avec visualisations Python pour des prévisions agricoles.</div>
+          <a href="#" class="project-link">Voir le détail →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Travaillons ensemble</p>
+    <h2 class="section-title fade-in">Contact</h2>
+    <div class="section-line fade-in"></div>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-in">
+        <p>Vous avez un projet Cloud, Big Data ou Blockchain ? Je suis disponible pour des missions freelance, des consultations ou des collaborations à long terme.</p>
+        <div class="contact-item">
+          <div class="contact-icon-box">✉️</div>
+          <div class="contact-detail">
+            <span class="label">Email</span>
+            <span class="value"><a href="mailto:lucasaidraciti@gmail.com">lucasaidraciti@gmail.com</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">📍</div>
+          <div class="contact-detail">
+            <span class="label">Localisation</span>
+            <span class="value">Italie 🇮🇹 (remote disponible)</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">💬</div>
+          <div class="contact-detail">
+            <span class="label">Langues</span>
+            <span class="value">Italien · Français · Anglais</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">⚡</div>
+          <div class="contact-detail">
+            <span class="label">Réponse</span>
+            <span class="value">Sous 24h en général</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="contact-form" class="fade-in" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" placeholder="Jean Dupont" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="jean@exemple.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Sujet</label>
+          <input type="text" id="subject" placeholder="Projet Cloud / Mission freelance…" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Décrivez votre projet…" required></textarea>
+        </div>
+        <div id="form-status"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Envoyer le message ✉️</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 <strong>Luca Raciti</strong> — Conçu avec ❤️ en Italie · <a href="mailto:lucasaidraciti@gmail.com">lucasaidraciti@gmail.com</a></p>
+</footer>
+
+<script>
+  // ── Intersection Observer — fade-in ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Skill bars animation ──
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target.querySelector('.skill-bar');
+        if (bar) bar.style.width = bar.dataset.width + '%';
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.skill-card').forEach(card => barObserver.observe(card));
+
+  // ── Nav active link ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+
+  // ── Form submit (demo) ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    status.className = 'success';
+    status.textContent = '✅ Message envoyé ! Je vous répondrai dans les 24h.';
+    e.target.reset();
+    setTimeout(() => { status.className = ''; status.textContent = ''; }, 5000);
+  }
+
+  // ── Hero fade-in on load ──
+  window.addEventListener('load', () => {
+    document.querySelector('#hero .fade-in').classList.add('visible');
+  });
+</script>
+</body>
+</html>
