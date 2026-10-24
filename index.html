@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luca Raciti — Portfolio</title>
+  <title>Luca Raciti — Portfolio Data</title>
+  <meta name="description" content="Luca Raciti — étudiant en Licence Informatique (Big Data), data analyst junior : Python, SQL, Power BI, Hadoop. Recherche un stage de fin d’études en data dès janvier 2027." />
   <style>
     :root {
       --bg: #0a0e1a;
@@ -218,7 +219,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
       gap: 1.5rem;
     }
 
@@ -434,6 +435,21 @@
     }
 
     .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* ── LISTES DE COMPÉTENCES ── */
+    .skill-list { list-style: none; margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+    .skill-list li { font-size: 0.78rem; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.3); color: #c4b5fd; }
+
+    /* ── EXPÉRIENCE ── */
+    #experience { background: var(--bg); }
+    .xp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+    .xp-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
+    .xp-title { font-size: 1.15rem; font-weight: 700; }
+    .xp-date { color: var(--accent); font-size: 0.9rem; font-weight: 600; }
+    .xp-company { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .xp-card ul { padding-left: 1.2rem; color: var(--muted); }
+    .xp-card li { margin-bottom: 0.4rem; }
+    .xp-card li strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 680px) { .nav-links { gap: 0.8rem; font-size: 0.8rem; } }
   </style>
 </head>
 <body>
@@ -443,6 +459,7 @@
   <div class="nav-logo">LR.</div>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
+    <li><a href="#experience">Expérience</a></li>
     <li><a href="#skills">Compétences</a></li>
     <li><a href="#projects">Projets</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -452,12 +469,13 @@
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-content fade-in">
-    <div class="hero-badge">☁️ Cloud &amp; Blockchain Engineer</div>
+    <div class="hero-badge">📊 Data Analyst · Big Data · Business Intelligence</div>
     <h1>Luca <span>Raciti</span></h1>
-    <p class="hero-subtitle">Architecte Cloud · Ingénieur Big Data · Développeur Blockchain<br>Basé en Italie 🇮🇹</p>
+    <p class="hero-subtitle">Étudiant en dernière année de Licence Informatique, spécialisation Big Data<br>Je recherche un stage de fin d’études en data dès janvier 2027</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-      <a href="#contact" class="btn btn-outline">Me contacter</a>
+      <a href="https://www.linkedin.com/in/raciti-luca" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/RacitiLuca" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
     </div>
   </div>
 </section>
@@ -473,62 +491,78 @@
         <p class="section-label">À propos</p>
         <h2 class="section-title">Bonjour, je suis Luca</h2>
         <div class="section-line"></div>
-        <p>Ingénieur passionné par les technologies cloud, la data et les systèmes décentralisés. Je conçois des architectures scalables sur AWS, des pipelines de données massives et des solutions blockchain pour les entreprises modernes.</p>
-        <p>Avec plusieurs années d'expérience dans des environnements cloud-native, je transforme des défis techniques complexes en solutions robustes et maintenables.</p>
+        <p>Étudiant en dernière année de Licence Informatique et Systèmes d’Information (spécialisation Big Data) à TED University, je m’intéresse à l’analyse de données, à la business intelligence et au traitement de données à grande échelle.</p>
+        <p>Cet été, chez KF Gestion financière au Québec, j’ai fiabilisé des données clients sous Salesforce, créé des tableaux de bord de suivi et développé une plateforme web de gestion de prospects. Je prépare la certification Microsoft PL-300 (Power BI).</p>
         <div class="about-info">
-          <div class="info-item"><span class="info-icon">📍</span> Italie</div>
-          <div class="info-item"><span class="info-icon">💼</span> Cloud &amp; Blockchain Engineer</div>
-          <div class="info-item"><span class="info-icon">✉️</span> lucasaidraciti@gmail.com</div>
-          <div class="info-item"><span class="info-icon">🌐</span> Disponible pour des projets freelance</div>
+          <div class="info-item"><span class="info-icon">🎓</span> TED University — Licence Informatique &amp; SI, Big Data (2024–2027)</div>
+          <div class="info-item"><span class="info-icon">📍</span> Tunis — mobile en France et en Europe</div>
+          <div class="info-item"><span class="info-icon">🇪🇺</span> Citoyen européen (passeport italien)</div>
+          <div class="info-item"><span class="info-icon">🎯</span> Stage de fin d’études en data dès fin janvier 2027 (3 à 6 mois)</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── COMPÉTENCES ── -->
-<section id="skills">
+<!-- ── EXPÉRIENCE ── -->
+<section id="experience">
   <div class="container">
-    <p class="section-label fade-in">Expertise</p>
+    <p class="section-label fade-in">Parcours</p>
+    <h2 class="section-title fade-in">Expérience</h2>
+    <div class="section-line fade-in"></div>
+    <div class="xp-card fade-in">
+      <div class="xp-head">
+        <div class="xp-title">Stagiaire Data &amp; Développement</div>
+        <div class="xp-date">Juil. – Sept. 2026</div>
+      </div>
+      <div class="xp-company">KF Gestion financière — cabinet affilié à iA Groupe financier · Blainville, Québec, Canada</div>
+      <ul>
+        <li><strong>Plateforme web de suivi de prospects</strong> conçue et développée en autonomie (Next.js, SQL, Vercel)</li>
+        <li><strong>Qualité des données</strong> : détection des doublons, correction et uniformisation des fiches clients dans Salesforce</li>
+        <li><strong>Tableaux de bord et rapports Salesforce</strong> : suivi des prospects, rendez-vous et activités</li>
+        <li><strong>Automatisation des suivis</strong> et gestion de la conformité des dossiers clients</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPÉTENCES ── -->
+<section id="skills" style="background: var(--surface);">
+  <div class="container">
+    <p class="section-label fade-in">Boîte à outils</p>
     <h2 class="section-title fade-in">Compétences</h2>
     <div class="section-line fade-in"></div>
     <div class="skills-grid">
-
-      <div class="skill-card fade-in">
-        <div class="skill-icon">☁️</div>
-        <div class="skill-name">Cloud Computing</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="90"></div></div>
-        <div class="skill-level">Expert — 90%</div>
-      </div>
-
-      <div class="skill-card fade-in">
-        <div class="skill-icon">🟠</div>
-        <div class="skill-name">AWS</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
-        <div class="skill-level">Expert — 88%</div>
-      </div>
-
       <div class="skill-card fade-in">
         <div class="skill-icon">📊</div>
-        <div class="skill-name">Big Data</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="82"></div></div>
-        <div class="skill-level">Avancé — 82%</div>
+        <div class="skill-name">Data &amp; BI</div>
+        <ul class="skill-list"><li>SQL</li><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Excel</li></ul>
       </div>
-
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🐘</div>
+        <div class="skill-name">Big Data</div>
+        <ul class="skill-list"><li>Hadoop HDFS</li><li>MapReduce</li><li>Hadoop Streaming</li></ul>
+      </div>
       <div class="skill-card fade-in">
         <div class="skill-icon">🐍</div>
-        <div class="skill-name">Python</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="92"></div></div>
-        <div class="skill-level">Expert — 92%</div>
+        <div class="skill-name">Langages</div>
+        <ul class="skill-list"><li>Python</li><li>Java</li><li>TypeScript</li><li>PHP</li><li>PL/SQL</li></ul>
       </div>
-
       <div class="skill-card fade-in">
-        <div class="skill-icon">⛓️</div>
-        <div class="skill-name">Blockchain</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div>
-        <div class="skill-level">Avancé — 78%</div>
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">Bases de données</div>
+        <ul class="skill-list"><li>PostgreSQL</li><li>MySQL</li><li>Oracle</li><li>SQLite</li></ul>
       </div>
-
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-name">Web</div>
+        <ul class="skill-list"><li>React</li><li>Next.js</li><li>Django</li><li>Symfony</li></ul>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">Cloud &amp; outils</div>
+        <ul class="skill-list"><li>AWS EC2</li><li>Linux</li><li>Git</li><li>Salesforce</li></ul>
+      </div>
     </div>
   </div>
 </section>
@@ -542,74 +576,62 @@
     <div class="projects-grid">
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #1e3a5f, #0a1628);">🟠</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #1a2e4a, #0d1f35);">🐘</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Lambda</span>
-          </div>
-          <div class="project-title">CloudScaler Pro</div>
-          <div class="project-desc">Architecture multi-région sur AWS avec auto-scaling intelligent, réduisant les coûts d'infrastructure de 40% pour une startup FinTech de 500k utilisateurs.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">Hadoop</span><span class="tag">MapReduce</span><span class="tag">Python</span></div>
+          <div class="project-title">Analyse e-commerce Big Data</div>
+          <div class="project-desc">5 jobs MapReduce sur 1 050 000 transactions stockées dans HDFS : top produits, clients actifs, chiffre d’affaires par catégorie, tendances mensuelles, produits achetés ensemble.</div>
+          <a href="https://github.com/RacitiLuca/hadoop-ecommerce-analytics" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #1a2e4a, #0d1f35);">📊</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #3a2f0d, #1f1a08);">📈</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Spark</span><span class="tag">Kafka</span><span class="tag">Python</span><span class="tag">AWS EMR</span>
-          </div>
-          <div class="project-title">DataStream Analytics</div>
-          <div class="project-desc">Pipeline Big Data temps-réel traitant 10 millions d'événements par jour, avec dashboards Spark Streaming et stockage optimisé sur S3 / Redshift.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data Viz</span></div>
+          <div class="project-title">Tableaux de bord Power BI</div>
+          <div class="project-desc">Moteur de recherche interactif sur 18 000 sets LEGO et analyse de 14 800 salaires de la data (postes, expérience, télétravail, cartes).</div>
+          <a href="https://github.com/RacitiLuca/powerbi-dashboards" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #1f1a3a, #110d24);">⛓️</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #1f1a3a, #110d24);">🎓</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Ethereum</span><span class="tag">Solidity</span><span class="tag">Web3.py</span>
-          </div>
-          <div class="project-title">ChainVault DeFi</div>
-          <div class="project-desc">Protocole DeFi sur Ethereum avec smart contracts audités, gestion de pools de liquidité et interface Python pour l'automatisation des stratégies de yield farming.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">AWS</span></div>
+          <div class="project-title">SmartEdu</div>
+          <div class="project-desc">Plateforme éducative multi-rôles (étudiants, professeurs, admins) : cours, inscriptions, forum, tableau de bord professeur, déployée sur AWS EC2.</div>
+          <a href="https://github.com/RacitiLuca/smartedu" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #1a3029, #0d1f18);">🐍</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #1a3029, #0d1f18);">☕</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">ML</span><span class="tag">AWS SageMaker</span>
-          </div>
-          <div class="project-title">PredictOps AI</div>
-          <div class="project-desc">Plateforme MLOps déployant des modèles de prédiction de pannes industrielles via SageMaker, avec monitoring automatisé et réentraînement continu.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">Java</span><span class="tag">JDBC</span><span class="tag">SQLite</span></div>
+          <div class="project-title">TechVest</div>
+          <div class="project-desc">Application Java orientée objet : analyse du marché de l’emploi IT et plateforme d’investissement dans des projets tech (pattern DAO, exceptions métier).</div>
+          <a href="https://github.com/RacitiLuca/techvest" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #2a1a1a, #1a0d0d);">🔗</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #1e3a5f, #0a1628);">🗂️</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Hyperledger</span><span class="tag">Go</span><span class="tag">AWS</span>
-          </div>
-          <div class="project-title">SupplyChain Ledger</div>
-          <div class="project-desc">Solution de traçabilité supply chain sur Hyperledger Fabric, hébergée sur AWS, permettant la transparence bout-en-bout pour un groupe industriel européen.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">PDO</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span></div>
+          <div class="project-title">Gestion des étudiants</div>
+          <div class="project-desc">Application CRUD en PHP avec requêtes préparées, échappement des sorties et interface Bootstrap 5 repensée.</div>
+          <a href="https://github.com/RacitiLuca/php-student-management" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-header" style="background: linear-gradient(135deg, #1a2a3a, #0d1a26);">📡</div>
+        <div class="project-header" style="background: linear-gradient(135deg, #2a1a1a, #1a0d0d);">🧪</div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag">Big Data</span><span class="tag">Hadoop</span><span class="tag">Hive</span><span class="tag">Python</span>
-          </div>
-          <div class="project-title">MeteoData Lake</div>
-          <div class="project-desc">Data lake météorologique analysant 5 To de données satellitaires par semaine via Hadoop/Hive, avec visualisations Python pour des prévisions agricoles.</div>
-          <a href="#" class="project-link">Voir le détail →</a>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Pygame</span><span class="tag">Web3</span></div>
+          <div class="project-title">Learning Lab</div>
+          <div class="project-desc">Mes exercices d’apprentissage : visualisation Matplotlib, jeux Pygame, applications Django et expériences Web3.py.</div>
+          <a href="https://github.com/RacitiLuca/learning-lab" target="_blank" rel="noopener" class="project-link">Voir sur GitHub →</a>
         </div>
       </div>
 
@@ -620,12 +642,12 @@
 <!-- ── CONTACT ── -->
 <section id="contact">
   <div class="container">
-    <p class="section-label fade-in">Travaillons ensemble</p>
+    <p class="section-label fade-in">Échangeons</p>
     <h2 class="section-title fade-in">Contact</h2>
     <div class="section-line fade-in"></div>
     <div class="contact-wrapper">
       <div class="contact-info fade-in">
-        <p>Vous avez un projet Cloud, Big Data ou Blockchain ? Je suis disponible pour des missions freelance, des consultations ou des collaborations à long terme.</p>
+        <p>Vous recrutez un stagiaire data pour 2027 ? Écrivez-moi, je serai ravi d’échanger.</p>
         <div class="contact-item">
           <div class="contact-icon-box">✉️</div>
           <div class="contact-detail">
@@ -634,24 +656,24 @@
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon-box">📍</div>
+          <div class="contact-icon-box">💼</div>
           <div class="contact-detail">
-            <span class="label">Localisation</span>
-            <span class="value">Italie 🇮🇹 (remote disponible)</span>
+            <span class="label">LinkedIn</span>
+            <span class="value"><a href="https://www.linkedin.com/in/raciti-luca" target="_blank" rel="noopener">linkedin.com/in/raciti-luca</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon-box">💻</div>
+          <div class="contact-detail">
+            <span class="label">GitHub</span>
+            <span class="value"><a href="https://github.com/RacitiLuca" target="_blank" rel="noopener">github.com/RacitiLuca</a></span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon-box">💬</div>
           <div class="contact-detail">
             <span class="label">Langues</span>
-            <span class="value">Italien · Français · Anglais</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon-box">⚡</div>
-          <div class="contact-detail">
-            <span class="label">Réponse</span>
-            <span class="value">Sous 24h en général</span>
+            <span class="value">Français · Italien · Arabe · Anglais (C1)</span>
           </div>
         </div>
       </div>
@@ -662,19 +684,14 @@
           <input type="text" id="name" placeholder="Jean Dupont" required />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="jean@exemple.com" required />
-        </div>
-        <div class="form-group">
           <label for="subject">Sujet</label>
-          <input type="text" id="subject" placeholder="Projet Cloud / Mission freelance…" />
+          <input type="text" id="subject" placeholder="Stage data 2027" />
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Décrivez votre projet…" required></textarea>
+          <textarea id="message" placeholder="Votre message…" required></textarea>
         </div>
-        <div id="form-status"></div>
-        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Envoyer le message ✉️</button>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Écrire depuis ma messagerie ✉️</button>
       </form>
     </div>
   </div>
@@ -682,11 +699,11 @@
 
 <!-- ── FOOTER ── -->
 <footer>
-  <p>© 2026 <strong>Luca Raciti</strong> — Conçu avec ❤️ en Italie · <a href="mailto:lucasaidraciti@gmail.com">lucasaidraciti@gmail.com</a></p>
+  <p>© 2026 <strong>Luca Raciti</strong> · <a href="mailto:lucasaidraciti@gmail.com">lucasaidraciti@gmail.com</a> · <a href="https://www.linkedin.com/in/raciti-luca" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/RacitiLuca" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 <script>
-  // ── Intersection Observer — fade-in ──
+  // ── Apparition progressive des sections ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -698,20 +715,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // ── Skill bars animation ──
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar = entry.target.querySelector('.skill-bar');
-        if (bar) bar.style.width = bar.dataset.width + '%';
-        barObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  document.querySelectorAll('.skill-card').forEach(card => barObserver.observe(card));
-
-  // ── Nav active link ──
+  // ── Lien actif dans la navigation ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -725,17 +729,17 @@
     });
   });
 
-  // ── Form submit (demo) ──
+  // ── Formulaire : ouvre la messagerie du visiteur avec le message pré-rempli ──
   function handleSubmit(e) {
     e.preventDefault();
-    const status = document.getElementById('form-status');
-    status.className = 'success';
-    status.textContent = '✅ Message envoyé ! Je vous répondrai dans les 24h.';
-    e.target.reset();
-    setTimeout(() => { status.className = ''; status.textContent = ''; }, 5000);
+    const name = document.getElementById('name').value;
+    const subject = document.getElementById('subject').value || 'Contact depuis votre portfolio';
+    const message = document.getElementById('message').value;
+    const body = message + '\n\n— ' + name;
+    window.location.href = 'mailto:lucasaidraciti@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
 
-  // ── Hero fade-in on load ──
+  // ── Hero visible au chargement ──
   window.addEventListener('load', () => {
     document.querySelector('#hero .fade-in').classList.add('visible');
   });
